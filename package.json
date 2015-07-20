@@ -7,7 +7,7 @@
     "epitech",
     "header"
   ],
-  "repository": "https://github.com/atom/epitech-header",
+  "repository": "https://github.com/aquarennes/epitech-header",
   "license": "MIT",
   "engines": {
     "atom": ">=1.0.0 <2.0.0"
