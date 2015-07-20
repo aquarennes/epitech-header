@@ -1,7 +1,7 @@
 {
   "name": "epitech-header",
   "main": "./lib/epitech-header",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "Plugin to insert Epitech Header",
   "keywords": [
     "epitech",
