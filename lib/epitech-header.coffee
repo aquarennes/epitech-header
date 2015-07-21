@@ -29,7 +29,7 @@ module.exports = EpitechHeader =
         return
       template = """
       /*
-      ** {{filename}} for project in {{directory}}
+      ** {{filename}} for {{project}} in {{directory}}
       **
       ** Made by {{author}}
       ** Login   <{{author_username}}@epitech.net>
@@ -42,10 +42,19 @@ module.exports = EpitechHeader =
       coordinates = editor.getCursorBufferPosition()
       editor.moveToTop()
       editor.moveToBeginningOfLine()
+      buffer = atom.workspace.getActivePaneItem().buffer
+      filePath = buffer.file.path
+      project = atom.project.relativizePath(filePath)
+      if project?
+        paths = project[0].split('/')
+        project = paths.pop()
+      else
+        project = 'project'
       date = new Date()
       curdate = date.toDateString().replace(date.getFullYear(), '').trim()
       curtime = date.toLocaleTimeString('fr-FR', {hour12: false})
       template = template.replace('{{filename}}', editor.getTitle())
+      template = template.replace('{{project}}', project)
       template = template.replace('{{directory}}', path.dirname(editor.getPath()))
       template = template.replace('{{author}}', name)
       template = template.replace('{{author}}', name)
@@ -56,7 +65,7 @@ module.exports = EpitechHeader =
       template = template.replace('{{start_time}}', curtime)
       template = template.replace('{{start_time}}', curtime)
       editor.insertText(template)
-      editor.setSelectedBufferRange([[1, 8 + editor.getTitle().length], [1, 15 + editor.getTitle().length]])
+      editor.setSelectedBufferRange([[1, 8 + editor.getTitle().length], [1, 8 + editor.getTitle().length + project.length]])
     )
 
   update: (textBuffer) ->
