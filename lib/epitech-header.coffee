@@ -64,7 +64,7 @@ module.exports = EpitechHeader =
       buffer = atom.workspace.getActivePaneItem().buffer
       project = @getFileProject buffer.file
       date = new Date()
-      curdate = date.toDateString().replace(date.getFullYear(), '').trim()
+      curdate = date.toDateString()
       curtime = date.toLocaleTimeString 'fr-FR', hour12: false
       template.replace '{{filename}}', editor.getTitle()
       template.replace '{{project}}', project
@@ -96,7 +96,7 @@ module.exports = EpitechHeader =
       if err
         return
       date = new Date()
-      curdate = date.toDateString().replace(date.getFullYear(), '').trim()
+      curdate = date.toDateString()
       curtime = date.toLocaleTimeString 'fr-FR', hour12: false
       template = new Template @updateTemplateStr
       template.replace '{{date}}', curdate
