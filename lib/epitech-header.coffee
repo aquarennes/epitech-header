@@ -65,7 +65,11 @@ module.exports = EpitechHeader =
       project = @getFileProject buffer.file
       date = new Date()
       curdate = date.toDateString()
+      curdate = curdate.split ' '
+      year = curdate.pop()
+      curdate = curdate.join ' '
       curtime = date.toLocaleTimeString 'fr-FR', hour12: false
+      curtime = curtime + ' ' + year
       template.replace '{{filename}}', editor.getTitle()
       template.replace '{{project}}', project
       template.replace '{{directory}}', path.dirname(editor.getPath())
@@ -97,7 +101,11 @@ module.exports = EpitechHeader =
         return
       date = new Date()
       curdate = date.toDateString()
+      curdate = curdate.split ' '
+      year = curdate.pop()
+      curdate = curdate.join ' '
       curtime = date.toLocaleTimeString 'fr-FR', hour12: false
+      curtime = curtime + ' ' + year
       template = new Template @updateTemplateStr
       template.replace '{{date}}', curdate
       template.replace '{{time}}', curtime
