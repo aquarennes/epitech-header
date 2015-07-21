@@ -36,7 +36,7 @@ module.exports = EpitechHeader =
       **
       ** Started on  {{start_date}} {{start_time}} {{author}}
       ** Last update {{start_date}} {{start_time}} {{author}}
-      */
+      */\n
       """
       editor = atom.workspace.getActiveTextEditor()
       coordinates = editor.getCursorBufferPosition()
