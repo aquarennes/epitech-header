@@ -22,7 +22,7 @@ module.exports = EpitechHeader =
     ** {{filename}} for {{project}} in {{directory}}
     **
     ** Made by {{author}}
-    ** Login   <{{author_username}}@epitech.net>
+    ** Login   <{{author_username}}@epitech.eu>
     **
     ** Started on  {{start_date}} {{start_time}} {{author}}
     ** Last update {{start_date}} {{start_time}} {{author}}
